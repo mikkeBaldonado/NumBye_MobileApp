@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+<body>
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="binaryConverter.html">Byte Converter</a>
+    <a href="NumberConverter.html">Number Converter</a>
+    <a href="lesson.html">Lesson</a>
+    <a href="quiz.html">Quiz</a>
+  </div>
+</div>
+
+<span style="font-size:30px; cursor:pointer; margin-left: 20px;" onclick="openNav()">&#9776;</span>
+<script>
+function openNav() {
+    document.getElementById("myNav").style.width = "50%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
+</script>
+
+<h1>Binary Converter</h1>
+<div class="fromtoContainer">
+  <div class="from">
+    <label class="container">Bit
+      <input type="radio" checked="checked" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Byte
+      <input type="radio" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Kilobyte
+      <input type="radio" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Megabyte
+      <input type="radio" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Gigabyte
+      <input type="radio" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Terabyte
+      <input type="radio" name="radio">
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Petabyte
+      <input type="radio" name="radio">
+      <span class="checkmark"></span>
+    </label>
+  </div>
+
+  <div class="to">
+    <label class="containerTo">Bit
+      <input type="radio" checked="checked" name="radio1">
+      <span class="checkmarkTo"></span>
+    </label>
+    <label class="containerTo">Byte
+      <input type="radio" name="radio1">
+      <span class="checkmarkTo"></span>
+    </label>
+    <label class="containerTo">Kilobyte
+      <input type="radio" name="radio1">
+      <span class="checkmarkTo"></span>
+    </label>
+    <label class="containerTo">Megabyte
+      <input type="radio" name="radio1">
+      <span class="checkmarkTo"></span>
+    </label>
+    <label class="containerTo">Gigabyte
+      <input type="radio" name="radio1">
+      <span class="checkmarkTo"></span>
+    </label>
+    <label class="containerTo">Terabyte
+      <input type="radio" name="radio1">
+      <span class="checkmarkTo"></span>
+    </label>
+    <label class="containerTo">Petabyte
+      <input type="radio" name="radio1">
+      <span class="checkmarkTo"></span>
+    </label>
+  </div>
+</div>
+
+
+</body>
+</html>
