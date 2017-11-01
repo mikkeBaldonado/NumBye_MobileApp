@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
@@ -9,24 +10,39 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
 
     <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>NumByte Converter</title>
+
+    <title>Numbyte Converter</title>
 </head>
 
 <body>
-    <div class="app-wrapper splash">
-        <div class="app-content">
-            <div class="splash-screen-wrapper">
-                <div class="content">
-                    <div class="logo">
-                        <img src="img/logo.png" width="200" height="200" >
-                    </div><!-- .logo -->
-                    <div class="tagline">
-                        NumByte Converter
-                    </div><!-- .tagline -->
-                </div><!-- .content -->
-            </div><!-- .splash-screen -->
-        </div><!-- #app-content -->
-    </div><!--#app-wrapper-->
+
+    <div class="preload" id="preload">
+        <div class="loogo">
+            <img class="event listening" src="img/NumbyteLogo2.png">
+        </div>
+        <center>
+            <div class="loader-frame">
+            <div class="loader1" id="loader1"></div>
+            <div class="loader2" id="loader2"></div>
+        </div>
+        </center>
+        
+    </div>
+
+
+     <script src="js\index.js"></script>
+    <!--<div class="app">
+
+        <div id="deviceready" class="blink">
+            <center><img class="event listening" src="img/Numbyte.png"></center>
+            <a class="event received" href="binaryConverter.html"></a>
+        </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>-->
 </body>
 
 </html>

@@ -6,7 +6,7 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
+    background-color:#333;
     background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -29,10 +29,8 @@ body {
 
 /* Portrait layout (default) */
 .app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    /*background:url(../img/logo.png) no-repeat center top;  170px x 200px */
     position:absolute;             /* position in the center of the screen */
-    left:50%;
-    top:50%;
     height:50px;                   /* text area height */
     width:225px;                   /* text area width */
     text-align:center;
@@ -53,6 +51,72 @@ body {
 
 
 /*------------Splash Screen------------*/
+
+.preload{
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.logo{
+    width: 1px;
+    height: 1px;
+
+
+}
+
+.loader-frame {
+    width: 70px;
+    height: 70px;
+    margin-top: 200px; 
+    position: relative;
+}
+
+.loader1, .loader2{
+    position: absolute;
+    border: 5px solid transparent;
+    border-radius: 50%;
+}
+
+
+
+.loader1 {
+    width: 70px;
+    height: 70px;
+    border-top: 5px solid azure;
+    border-bottom: 5px solid azure; 
+    animation: clockwisespin 2s linear 3;
+}
+
+
+.loader2 {
+    width: 60px;
+    height: 60px;
+    border-left: 5px solid white;
+    border-right: 5px solid white; 
+    top: 5px; left: 5px;
+    animation: anticlockwisespin 2s linear 3;
+}
+
+@keyframes clockwisespin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes anticlockwisespin {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(-360deg);}
+}
+
+@keyframes fadeout {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
 h1 {
     font-size:24px;
     font-weight:normal;
@@ -98,7 +162,17 @@ h1 {
     -webkit-animation:fade 3000ms infinite;
 }
 
-/*------------Binary Converter------------*/
+
+
+/*------------------------Binary Converter------------------------*/
+
+.numberInput{
+    height: 20px;
+    width: 200px;
+    margin-top: 30px;
+
+}
+
 /* The container */
 .container {
     display: block;

@@ -27,70 +27,142 @@ function closeNav() {
 </script>
 
 <h1>Binary Converter</h1>
+<div >
+  <form>
+        <center><input type="number" class="numberInput" id="firstNumber" /></center><br>
+  </form>
+</div>
 <div class="fromtoContainer">
   <div class="from">
     <label class="container">Bit
-      <input type="radio" checked="checked" name="radio">
+      <input type="radio" checked="checked" name="from" onclick="getVal(this.value)" value=1>
       <span class="checkmark"></span>
     </label>
     <label class="container">Byte
-      <input type="radio" name="radio">
+      <input type="radio" name="from" onclick="getVal(this.value)" value=2>
       <span class="checkmark"></span>
     </label>
     <label class="container">Kilobyte
-      <input type="radio" name="radio">
+      <input type="radio" name="from" onclick="getVal(this.value)" value=3>
       <span class="checkmark"></span>
     </label>
     <label class="container">Megabyte
-      <input type="radio" name="radio">
+      <input type="radio" name="from" onclick="getVal(this.value)" value=4>
       <span class="checkmark"></span>
     </label>
     <label class="container">Gigabyte
-      <input type="radio" name="radio">
+      <input type="radio" name="from" onclick="getVal(this.value)" value=5>
       <span class="checkmark"></span>
     </label>
     <label class="container">Terabyte
-      <input type="radio" name="radio">
+      <input type="radio" name="from" onclick="getVal(this.value)" value=6>
       <span class="checkmark"></span>
     </label>
     <label class="container">Petabyte
-      <input type="radio" name="radio">
+      <input type="radio" name="from" onclick="getVal(this.value)" value=7>
       <span class="checkmark"></span>
     </label>
   </div>
 
   <div class="to">
     <label class="containerTo">Bit
-      <input type="radio" checked="checked" name="radio1">
+      <input type="radio" checked="checked" name="to" onclick="getVal(this.value)" value=1>
       <span class="checkmarkTo"></span>
     </label>
     <label class="containerTo">Byte
-      <input type="radio" name="radio1">
+      <input type="radio" name="to" onclick="getVal(this.value)" value=2>
       <span class="checkmarkTo"></span>
     </label>
     <label class="containerTo">Kilobyte
-      <input type="radio" name="radio1">
+      <input type="radio" name="to" onclick="getVal(this.value)" value=3>
       <span class="checkmarkTo"></span>
     </label>
     <label class="containerTo">Megabyte
-      <input type="radio" name="radio1">
+      <input type="radio" name="to" onclick="getVal(this.value)" value=4>
       <span class="checkmarkTo"></span>
     </label>
     <label class="containerTo">Gigabyte
-      <input type="radio" name="radio1">
+      <input type="radio" name="to" onclick="getVal(this.value)" value=5>
       <span class="checkmarkTo"></span>
     </label>
     <label class="containerTo">Terabyte
-      <input type="radio" name="radio1">
+      <input type="radio" name="to" onclick="getVal(this.value)" value=6>
       <span class="checkmarkTo"></span>
     </label>
     <label class="containerTo">Petabyte
-      <input type="radio" name="radio1">
+      <input type="radio" name="to" onclick="getVal(this.value)" value=7>
       <span class="checkmarkTo"></span>
     </label>
   </div>
 </div>
 
+<center>
+  <p>RESULT : <br>
+    <output id = "result"></output>
+  </p>
+</center>
+
+
+
+<script language="javascript">
+    
+    function getVal()
+    {
+      var x = document.getElementById("from").value = from;
+      document.getElementById("result").value = from;
+    }
+
+    function convert()
+    {
+      var size = Number(document.getElementById("numberInput").value);
+      var cfrom = (document.getElementById("from").value);
+      var cto = (document.getElementById("to").value);
+
+        if (cfrom < cto){
+          if(cfrom == 1 && cto!= 1){
+            var bytesize = size/8 ;
+            if (cfrom == 1 && cto == 2){
+              return bytesize;
+            }
+            else{
+              for(var x=1; x < cto-cfrom; x++ ){
+                bytesize/=1024;
+              }
+              return bytesize;
+            }
+          }
+          else
+          for(var x=0; x < cto-cfrom; x++ ){
+            size/=1024;
+          }
+          return size;
+        }
+        else if (cfrom > cto ){
+          if( cfrom != 1 && cto== 1){
+            var bytesize = size*8 ;
+            if (cfrom == 2 && cto == 1){
+              return bytesize;
+            }
+            else{
+              for(var x=1; x < cfrom-cto; x++ ){
+                bytesize*=1024;
+                return bytesize;
+              }
+            }
+          }
+          else
+            for(var x=0; x < cfrom-cto; x++ ){
+              size*=1024;
+            }
+            return size;
+        }
+        else{
+          return size; //equal
+        }
+        document.getElementById("result").innerHTML = size; 
+    }
+    
+</script>
 
 </body>
 </html>
