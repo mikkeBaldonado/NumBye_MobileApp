@@ -15,10 +15,10 @@
   </div>
 </div>
 
-<span style="font-size:30px; cursor:pointer; margin-left: 20px;" onclick="openNav()">&#9776;</span>
+<span style="font-size:30px; cursor:pointer; margin-left: 20px; color: white;" onclick="openNav()">&#9776;</span>
 <script>
 function openNav() {
-    document.getElementById("myNav").style.width = "100%";
+    document.getElementById("myNav").style.width = "50%";
 }
 
 function closeNav() {
@@ -26,7 +26,187 @@ function closeNav() {
 }
 </script>
 
-<h1>Conversion Lessons</h1>
+<div class="lesson">
+  <h1 class="pageTitle">Conversion Lessons</h1>
+  <div class="lessonBody">
+    <h4>Storage Units</h4>
+      <div class="lessonParagraph">
+        <p>The smallest unit of measurement used for measuring data is a bit. A single bit can have a value of either 0 or 1. It may contain a binary value (such as On/Off or True/False), but nothing more. Therefore, a byte, or eight bits, is used as the fundamental unit of measurement for data. A byte can store 28 or 256 different values, which is sufficient to represent standard ASCII characters, such as letters, numbers and symbols.
+
+        Since most files contain thousands of bytes, file sizes are often measured in kilobytes. Larger files, such as images, videos, and audio files, contain millions of bytes and therefore are measured in megabytes. Modern storage devices can store thousands of these files, which is why storage capacity is typically measured in gigabytes or even terabytes. Larger units of measurement are usually reserved for measuring the sum of multiple storage devices or the capacity of large data storage networks. </p>
+      </div>
+
+      <div class="tableData">
+        <table class="list">
+          <tr>
+            <th>Unit</th>
+            <th>Value</th>
+            <th>Size</th>
+          </tr>
+          <div class="rowValues">
+            <tr>
+            <td>bit(b)</td>
+            <td>0 or 1</td>
+            <td>1/8 of a byte</td>
+            </tr>
+            <tr>
+              <td>kilobyte(KB)</td>
+              <td>1000<sup>1</sup> bytes</td>
+              <td>1,000 bytes</td>
+            </tr>
+            <tr>
+              <td>megabyte(MB)</td>
+              <td>1000<sup>2</sup> bytes</td>
+              <td>1,000,000 bytes</td>
+            </tr>
+            <tr><td>gigabyte(GB)</td>
+              <td>1000<sup>3</sup> bytes</td>
+              <td>1,000,000,000 bytes</td>
+            </tr>
+            <tr>
+              <td>terabyte(TB)</td>
+              <td>1000<sup>4</sup> bytes</td>
+              <td>1,000,000,000,000 bytes</td>
+            </tr>
+            <tr>
+              <td>petabyte(PB)</td>
+              <td>1000<sup>5</sup> bytes</td>
+              <td>1,000,000,000,000,000 bytes</td>
+            </tr>
+          </div>
+        </table>
+
+      </div>
+      <div class="lessonParagraph">
+        <p>NOTE: A lowercase "b" is used as an abbreviation for bits, while an uppercase "B" represents bytes. This is an important distinction, since a byte is 8x as large as a bit. </p>
+      </div >
+
+      <div class="subTopic">
+      <p style="font-weight:bold">Bit</p>
+      </div>
+
+      <div class="lessonParagraph">
+        <p>The smallest unit of data in a computer is called Bit (Binary Digit). A bit has a single binary value, either 0 or 1. In most computer systems, there are eight bits in a byte. The value of a bit is usually stored as either above or below a designated level of electrical charge in a single capacitor within a memory device.
+        </p>
+      </div>
+
+      <div class="subTopic">
+        <p style="font-weight:bold">Byte</p>
+      </div>
+
+      <div class="lessonParagraph">
+        <p>A byte is a unit of data that is eight binary digits long. A byte is the unit most computers use to represent a character such as a letter, number or typographic symbol (for example, “g”, “5”, or “?”). A byte can also hold a string of bits that need to be used in some larger unit of application purposes (for example, the stream of bits that constitute a visual image for a program that displays images or the string of bits that constitutes the machine code of a computer program).
+
+        In some computer systems, four bytes constitute a word, a unit that a computer processor can be designed to handle efficiently as it reads and processes each instruction. Some computer processors can handle two-byte or single-byte instructions.
+
+        A byte is abbreviated with a “B”. (A bit is abbreviated with a small “b”). Computer storage is usually measured in byte multiples. For example, an 820 MB hard drive holds a nominal 820 million bytes – or megabytes – of data. Byte multiples are based on powers of 2 and commonly expressed as a “rounded off” decimal number. For example, one megabyte (“one million bytes”) is actually 1,048,576 (decimal) bytes.
+        </p>
+      </div>
+
+      <div class="subTopic">
+        <p style="font-weight:bold">Kilobyte</p>
+      </div>
+
+      <div class="lessonParagraph">
+        <p>A Kilobyte (kb or Kbyte) is approximately a thousand bytes (actually, 2 to the 10th power, or decimal 1,024 bytes).
+        </p>
+      </div>
+
+      <div class="subTopic">
+        <p style="font-weight:bold">Megabyte</p>
+      </div>
+
+      <div class="lessonParagraph">
+        <p>As a measure of computer processor storage and real and virtual memory, a megabyte (abbreviated MB) is 2 to the 20th power byte, or 1,048,576 bytes in decimal notation.
+        </p>
+      </div>
+
+      <div class="subTopic">
+        <p style="font-weight:bold">Gigabyte</p>
+      </div>
+
+      <div class="lessonParagraph">
+        <p>A Gigabyte (pronounced Gig-a-bite with hard G’s) is a measure of computer data storage capacity and is “roughly” a billion bytes. A gigabyte is two to the 30th power, or 1,073,741,824 in decimal notation.
+        </p>
+      </div>
+
+      <div class="subTopic">
+        <p style="font-weight:bold">Terabyte</p>
+      </div>
+
+      <div class="lessonParagraph">
+        <p>A Terabyte is a measure of computer storage capacity and is 2 to the 40th power of 1024 gigabytes.
+        </p>
+      </div>
+
+      <div class="subTopic">
+        <p style="font-weight:bold">Petabyte</p>
+      </div>
+
+      <div class="lessonParagraph">
+        <p>A Petabyte (PB) is a measure of memory or storage capacity and is 2 to the 50th power bytes or, in decimal, approximately a thousand terabytes (1024 terabytes).
+        </p>
+      </div>
+
+  <h4>Number Systems</h4>
+    <div class="subTopic">
+      <p style="font-weight:bold">What is Number System?</p>
+    </div>
+    
+      <div class="lessonParagraph">
+        <p>A number system is a way to represent numbers. It is a set of values used to represent different quantities. The total number of digits used in a number system is called its base or radix. The base is written after the number as subscript. Some important number systems are as follows: </p>
+      </div >
+
+      <div class="bulletlist">
+        <ul>
+          <li>Decimal number system</li>
+          <li>Binary number system</li>
+          <li>Octal number system</li>
+          <li>Hexadecimal number system</li>
+        </ul>
+      </div>
+      
+
+      <div class="lessonParagraph">
+        <p>The decimal number system is used in general. However, the computers use binary number system. The octal and hexadecimal number systems are used in the computer.</p>
+      </div>
+
+    <div class="subTopic">
+      <p style="font-weight:bold">Decimal number System</p>
+    </div>
+
+      <div class="lessonParagraph">
+        <p>The Decimal Number System consists of ten digits from 0 to 9. These digits can be used to represent any numeric value. The base of decimal number system is 10. It is the most widely used number system. The value represented by individual digit depends on weight and position of the digit.
+
+        Each number in this system consists of digits which are located at different positions. The position of first digit towards left side of the decimal point is 0. The position of second digit towards left side of the decimal point is 1. Similarly, the position of first digit towards right side of decimal point is -1. The position of second digit towards right side of decimal point is -2 and so on.
+
+        The value of the number is determined by multiplying the digits with the weight of their position and adding the results. This method is known as expansion method. The rightmost digit of number has the lowest weight. This digit is called Least Significant Digit (LSD). The leftmost digit of a number has the highest weight. This digit is called Most Significant Digit (MSD). The digit 7 in the number 724 is most significant digit and 4 is the least significant digit.</p>
+      </div>
+
+    <div class="subTopic">
+      <p style="font-weight:bold">Binary number System</p>
+    </div>
+    
+      <div class="lessonParagraph">
+        <p>Digital computer represents all kinds of data and information in the binary system. Binary Number System consists of two digits 0 and 1. Its base is 2. Each digit or bit in binary number system can be 0 or 1. A combination of binary numbers may be used to represent different quantities like 1001. The positional value of each digit in binary number is twice the place value or face value of the digit of its right side. The weight of each position is a power of 2.</p>
+      </div>
+    
+    <div class="subTopic">
+      <p style="font-weight:bold">Octal number System</p>
+    </div>
+
+      <div class="lessonParagraph">
+        <p>Octal Number System consists of eight digits from 0 to 7. The base of octal system is 8. Each digit position in this system represents a power of 8. Any digit in this system is always less than 8. Octal number system is used as a shorthand representation of long binary numbers. The number 6418 is not valid in this number system as 8 is not a valid digit.</p>
+      </div>
+
+    <div class="subTopic">
+      <p style="font-weight:bold">Hexadecimal number System</p>
+    </div>
+
+      <div class="lessonParagraph"><p>The Hexadecimal Number System consists of 16 digits from 0 to 9 and A to F. The alphabets A to F represent decimal numbers from 10 to 15. The base of this number system is 16. Each digit position in hexadecimal system represents a power of 16. The number 76416 is valid hexadecimal number. It is different from 76410 which is seven hundred and sixty four. This number system provides shortcut method to represent long binary numbers.</p>
+      </div>
+  </div>
+</div>
 
 
 </body>

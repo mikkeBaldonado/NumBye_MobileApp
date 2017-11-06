@@ -15,7 +15,7 @@
   </div>
 </div>
 
-<span style="font-size:30px; cursor:pointer; margin-left: 20px;" onclick="openNav()">&#9776;</span>
+<span style="font-size:30px; cursor:pointer; margin-left: 20px; color: white;" onclick="openNav()">&#9776;</span>
 <script>
 function openNav() {
     document.getElementById("myNav").style.width = "100%";
@@ -25,48 +25,184 @@ function closeNav() {
     document.getElementById("myNav").style.width = "0%";
 }
 </script>
-
-<h1>Number Converter</h1>
+<h1 class="pageTitle">Number Converter</h1>
+<div >
+  <form>
+        <center><input type="number" class="numberInput" id="val" /></center><br>
+  </form>
+</div>
 <div class="fromtoContainer">
   <div class="from">
     <label class="container">Binary
-      <input type="radio" checked="checked" name="radio">
+      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value = 1>
       <span class="checkmark"></span>
     </label>
     <label class="container">Octal
-      <input type="radio" name="radio">
+      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value = 2>
       <span class="checkmark"></span>
     </label>
     <label class="container">Decimal
-      <input type="radio" name="radio">
+      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value = 3>
       <span class="checkmark"></span>
     </label>
     <label class="container">Hexadecimal
-      <input type="radio" name="radio">
+      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value = 4>
       <span class="checkmark"></span>
     </label>
   </div>
 
   <div class="to">
     <label class="containerTo">Binary
-      <input type="radio" checked="checked" name="radio1">
+      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value = 1>
       <span class="checkmarkTo"></span>
     </label>
     <label class="containerTo">Octal
-      <input type="radio" name="radio1">
+      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value = 2>
       <span class="checkmarkTo"></span>
     </label>
     <label class="containerTo">Decimal
-      <input type="radio" name="radio1">
+      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value = 3>
       <span class="checkmarkTo"></span>
     </label>
     <label class="containerTo">Hexadecimal
-      <input type="radio" name="radio1">
+      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value = 4>
       <span class="checkmarkTo"></span>
     </label>
   </div>
 </div>
 
+<center>
+  <input type="button" onClick="function()" Value="convert" />
+  <p>RESULT : <br>
+    <output id = "cfrom"></output>
+    <output id = "cto"></output>
+    <output id = "result3"></output>
+  </p>
+</center>
+
+     <script src="baseConverter.js"></script>
+
+
+<script language="javascript">
+    
+    function getVal(from)
+    {
+      document.getElementById("cfrom").value = from;
+    }
+
+    function getVal2(to)
+    {
+      document.getElementById("cto").value = to;
+    }
+
+
+    /*dec_to_bho = function(n, base) {
+     
+        if (n < 0) {
+          n = 0xFFFFFFFF + n + 1;
+         } 
+    switch (base)  
+    {  
+    case 'B':  
+    return parseInt(n, 10).toString(2);
+    break;  
+    case 'H':  
+    return parseInt(n, 10).toString(16);
+    break;  
+    case 'O':  
+    return parseInt(n, 10).toString(8);
+    break;  
+    default:  
+    return("Wrong input.........");  
+    }  
+    }
+
+    console.log(dec_to_bho(120,'B'));
+    console.log(dec_to_bho(120,'H'));
+    console.log(dec_to_bho(120,'O'));*/
+
+
+/*(function(){
+ 
+    var ConvertBase = function (num) {
+        return {
+            from : function (baseFrom) {
+                return {
+                    to : function (baseTo) {
+                        return parseInt(num, baseFrom).toString(baseTo);
+                    }
+                };
+            }
+        };
+    };
+        
+    // binary to decimal
+    ConvertBase.cnvrt = function (num) {
+        return ConvertBase(num).from(cfrom).to(cto);
+    };
+       
+    this.ConvertBase = ConvertBase;
+    
+})(this);
+
+document.getElementById("result3").innerHTML = (ConvertBase.cnvrt(val));*/
+//alert(ConvertBase.cnvrt(val));
+//console.log(ConvertBase.cnvrt(val));
+
+    /*cfrom = Number(document.getElementById("cfrom").value);
+    cto = Number(document.getElementById("cto").value);
+    val = document.getElementById("val").value;
+
+   var ConvertBase = function (val) {
+        return {
+            from : function (baseFrom) {
+                return {
+                    to : function (baseTo) {
+                        return parseInt(num, baseFrom).toString(baseTo);
+                    }
+                };
+            }
+        };
+    };
+        
+    // binary to decimal
+    ConvertBase.bin2dec = function (val) {
+        return ConvertBase(val).from(cfrom).to(cto);
+    };*/
+    
+    /*// binary to hexadecimal
+    ConvertBase.bin2hex = function (val) {
+        return ConvertBase(num).from(2).to(16);
+    };
+    
+    // decimal to binary
+    ConvertBase.dec2bin = function (val) {
+        return ConvertBase(num).from(10).to(2);
+    };
+    
+    // decimal to hexadecimal
+    ConvertBase.dec2hex = function (val) {
+        return ConvertBase(num).from(10).to(16);
+    };
+    
+    // hexadecimal to binary
+    ConvertBase.hex2bin = function (val) {
+        return ConvertBase(num).from(16).to(2);
+    };
+    
+    // hexadecimal to decimal
+    ConvertBase.hex2dec = function (val) {
+        return ConvertBase(num).from(16).to(10);
+    };*/
+    
+    //this.ConvertBase = ConvertBase;
+
+    //document.getElementById("result3").innerHTML = ConvertBase.bin2dec(val);
+
+    /*alert(ConvertBase.bin2dec('1100'));
+    console.log(ConvertBase.bin2dec('1100'));*/
+
+</script>
 
 </body>
 </html>
