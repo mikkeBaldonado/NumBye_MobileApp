@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+<body>
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="binaryConverter.html">Byte Converter</a>
+    <a href="NumberConverter.html">Number Converter</a>
+    <a href="lesson.html">Learn About Conversion</a>
+    <a href="quizStarter.html">Short Quiz</a>
+  </div>
+</div>
+
+<div class="header">
+  <span style="font-size:30px; cursor:pointer; margin-left: 20px; color: white;" onclick="openNav()">&#9776;</span>
+</div>
+
+<script>
+function openNav() {
+    document.getElementById("myNav").style.width = "50%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
+</script>
+
+<center>
+  <div class="roundBox"  id="quizContainer">
+    <div id="question" class="randomQuestions"></div>
+  </div>
+</center>
+  <div class="qchoices" id="questionchoices">
+    <label class="choices"><input type="radio" name="option" value="1"><span id="opt1"></span></label>
+    <label class="choices"><input type="radio" name="option" value="2"><span id="opt2"></span></label>
+    <label class="choices"><input type="radio" name="option" value="3"><span id="opt3"></span></label>
+    <label class="choices"><input type="radio" name="option" value="4"><span id="opt4"></span></label>
+    <button id="prevButton" class="next-btn" style="display: none;" onclick="loadPrevQuestion()">prev</button>
+    <button id="nextButton" class="next-btn" onclick="loadNextQuestion()">next</button>
+  </div>
+  
+  <div id="result" class="container result" style="display: none;">
+</div>
+  
+
+
+
+<script src="quiz-script.js"></script>
+
+
+
+ <!-- <div class="qchoices">
+    <input type="button" onClick="loadNextQuestion()" Value="Next"/>
+    <label class="choices"><input type="radio" name="option"><output id = "opt1"></output></label>
+    <label class="choices"><input type="radio" name="option"><output id = "opt2"></output></label>
+    <label class="choices"><input type="radio" name="option"><output id = "opt3"></output></label>
+    <label class="choices"><input type="radio" name="option"><output id = "opt4"></output></label>
+  </div>-->
+  
+
+
+
+<!--<script type="text/javascript">
+
+  var questions = [
+                      { 
+                          "question": "What is the smallest unit of data in a computer?",
+                          "option1": "Byte",
+                          "option2": "Nibble",
+                          "option3": "Bit",
+                          "option4": "kilobyte",
+                          "answer": "3"
+                     },
+                     { 
+                          "question": "Which is the largest unit of information in a computer?",
+                          "option1": "Terabyte",
+                          "option2": "Terabit",
+                          "option3": "Gigabyte",
+                          "option4": "kilobyte",
+                          "answer": "1"
+                     },
+                     { 
+                          "question": "How many bytes are there in one KB?",
+                          "option1": "1000",
+                          "option2": "1024",
+                          "option3": "1204",
+                          "option4": "1020",
+                          "answer": "2"
+                     },
+                     { 
+                          "question": "What are binary numbers?",
+                          "option1": "Terabyte",
+                          "option2": "Terabit",
+                          "option3": "Gigabyte",
+                          "option4": "kilobyte",
+                          "answer": "1"
+                     },
+                     { 
+                          "question": "What do you call to a base 10 number system?",
+                          "option1": "octal",
+                          "option2": "Hex",
+                          "option3": "Decimal",
+                          "option4": "Binary",
+                          "answer": "3"
+                     },
+                     { 
+                          "question": "What is hexadecimal number system?",
+                          "option1": "octal",
+                          "option2": "Hex",
+                          "option3": "Decimal",
+                          "option4": "Binary",
+                          "answer": "3"
+                     },
+                     { 
+                          "question": "What is octal number system?', '1024 mb is equal to _______gb?",
+                          "option1": "1000",
+                          "option2": "1024",
+                          "option3": "1204",
+                          "option4": "1020",
+                          "answer": "2"
+                     },
+                     { 
+                          "question": "1 terabyte is equal to _______gb??",
+                          "option1": "1000",
+                          "option2": "1024",
+                          "option3": "1204",
+                          "option4": "1020",
+                          "answer": "2"
+                     },
+                
+                  ];
+
+   
+  var currentQuestion = 0;
+  var score = 0;
+  var totQuestions = 5;
+
+  var container = document.getElementById('quizContainer');
+  var questionEl = document.getElementById('question'); 
+  var opt1 = document.getElementById('opt1'); 
+  var opt2 = document.getElementById('opt2'); 
+  var opt3 = document.getElementById('opt3'); 
+  var opt4 = document.getElementById('opt4');
+  var nextButton =document.getElementById('nextButton');
+  var resultCont =document.getElementById('result');
+  
+
+  function loadQuestion(questionIndex) {
+    var q = questions[questionIndex];
+    questionEl.textContent = (questionIndex + 1) + '. ' + q.question;
+    opt1.textContent = q.option1;
+    opt2.textContent = q.option2;
+    opt3.textContent = q.option3;
+    opt4.textContent = q.option4;
+  }
+
+  function loadNextQuestion() {
+    var selectedOption = document.querySelector(' input[type=radio]: checked');
+    if (!selectedOption) {
+      alert('Please select your answer!');
+      return;
+    }
+    var answer =  selectedOption.value;
+    if (questions[currentQuestion].answer == answer) {
+      score+=1;
+    }
+    selectedOption.checked = false;
+    currentQuestion++;
+      if (currentQuestion == totQuestions - 1) {
+        nextButton.textContent = 'Finish';
+      }
+      if (currentQuestion == totQuestions) {
+        container.style.display = 'none';
+        resultCont.style.display = '';
+        resultCont.textContent = 'Your Score ' + score;
+        return;
+      }
+      loadQuestion(currentQuestion);
+  }
+  loadQuestion(currentQuestion);                 
+
+ /* var currentQuestion = 0;
+  var score = 0;
+  var totQuestions = questions.length;
+
+  var container = document.getElementById('quizContainer');
+  var questionEl = document.getElementById('question'); 
+  var opt1 = document.getElementById('opt1'); 
+  var opt2 = document.getElementById('opt2'); 
+  var opt3 = document.getElementById('opt3'); 
+  var opt4 = document.getElementById('opt4');
+  var nextButton =document.getElementById('nextButton');
+  var resultCont =document.getElementById('result');
+  
+  function loadQuestion(questionIndex) {
+    var q = questions[questionIndex];
+    questionEl.textContent = (questionIndex + 1) + '. ' + q.question;
+    opt1.textContent = q.option1;
+    opt2.textContent = q.option2;
+    opt3.textContent = q.option3;
+    opt4.textContent = q.option4;
+  }
+
+  function loadNextQuestion() {
+    var selectedOption = document.querySelector(' input[type=radio]: checked');
+    if (!selectedOption) {
+      alert('Please select your answer!');
+      return;
+    }
+    var answer =  selectedOption.value;
+    if (questions[currentQuestion].answer == answer) {
+      score+=1;
+    }
+    selectedOption.checked = false;
+    currentQuestion++;
+      if (currentQuestion == totQuestions - 1) {
+        nextButton.textContent = 'Finish';
+      }
+      if (currentQuestion == totQuestions) {
+        container.style.display = 'none';
+        resultCont.style.display = '';
+        resultCont.textContent = 'Your Score ' + score;
+        return;
+      }
+      loadQuestion(currentQuestion);
+  }
+  loadQuestion(currentQuestion);*/
+
+</script> -->
+
+
+<!--<script type="text/JavaScript">
+    var questions = [
+                      { 
+                          "question": "What is the smallest unit of data in a computer?",
+                          "choice": ["Byte", "Nibble", "Bit"],
+                          "correct": ["Bit"]
+                     },
+                     { 
+                          "question": "Which is the largest unit of information in a computer?",
+                          "choice": ["Terabyte", "Terabit", "Gigabyte"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+                          "correct": ["Terabyte"]
+                     },
+                     { 
+                          "question": "How many bytes are there in one KB?",
+                          "choice": ["1000", "1024", "1204"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+                          "correct": ["1024"]
+                     },
+                     { 
+                          "question": "What are binary numbers?",
+                          "choice": ["Earth", "Jupiter", "Uranus"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+                          "correct": ["Jupiter"]
+                     },
+                     { 
+                          "question": "What do you call to a base 10 number system?",
+                          "choice": ["Octal", "Hex", "Decimal"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+                          "correct": ["Albany"]
+                     },
+                     { 
+                          "question": "What is hexadecimal number system?",
+                          "choice": ["109", "206", "114"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+                          "correct": ["206"]
+                     },
+                     { 
+                          "question": "What is octal number system?', '1024 mb is equal to _______ gb?",
+                          "choice": ["Bruce Banner", "Bruce Wayne", "Tony Stark"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+                          "correct": ["Bruce Wayne"]
+                     },
+                     { 
+                          "question": "1 terabyte is equal to _______ gb??",
+                          "choice": ["1024", "1000", "1402"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+                          "correct": ["1024"]
+                     },
+                
+                  ];
+
+  var itemNumber = 5;
+
+  function rQuestion(){
+    var randomQ = Math.floor(Math.random(questions) * (questions.length));
+    document.getElementById('ranquestions').innerHTML = questions[randomQ].question;
+    document.getElementById('opt1').innerHTML = questions[randomQ].choice[0];
+    document.getElementById('opt2').innerHTML = questions[randomQ].choice[1];
+    document.getElementById('opt3').innerHTML = questions[randomQ].choice[2];
+    document.getElementById('opt4').innerHTML = questions[randomQ].choice[3];
+  }
+
+  
+  function checker(){
+    /*var selectedOption = document.querySelector(' input[type=radio]: checked');
+    var answer =  selectedOption.value;
+    if (questions[randomQ].correct == correct) {
+      score+=1;
+    }
+    selectedOption.checked = false;*/
+      if (itemNumber == 1) {
+        nextButton.value = 'Finish';
+      }
+      if (itemNumber == 0) {
+        container.style.display = 'none';
+        resultCont.style.display = '';
+        resultCont.textContent = 'Your Score ' + score;
+        return;
+      }
+  }
+ 
+  function loadNextQuestion() {
+      rQuestion();
+      itemNumber--;    
+      if (itemNumber == 1) {
+        nextButton.value = 'Finish';
+      }
+  }
+
+  rQuestion();
+  
+</script>-->
+
+<!--<div id="questions"></div>
+<div id="quesRes"></div>-->
+
+<!--<script type="text/JavaScript">
+  //function getRandomQuestion(){
+    var display = document.getElementById("questions");
+    var questions = ['What is the smallest unit of data in a computer?',
+                'Which is the largest unit of information in a computer??',
+                'How many bytes are there in one KB?',
+                'What are binary numbers?',
+                'What do you call to a base 10 number system?', 
+                'What is hexadecimal number system?', 
+                'What is octal number system?', '1024 mb is equal to _______gb?',
+                '1 terabyte is equal to _______gb?'];
+    
+    var questionTracker = [];
+    var questionAmount = 1;
+
+    // Iterate however many times
+    for (var i = 0; i < questionAmount; i++) {
+      // Keep creating random numbers until the number is unique
+      do {
+        var randomQuestion = Math.floor(Math.random() * questions.length);
+      } while (existingQuestions());
+
+      display.innerHTML += questions[randomQuestion] + '<br>';
+      // Add the question to the tracker
+      questionTracker.push(randomQuestion);
+    }
+  //}
+
+
+// If the current random number already exists in the tracker, return true
+function existingQuestions() {
+  for (var i = 0; i < questionTracker.length; i++) {
+    if (questionTracker[i] === randomQuestion) {
+      return true;
+    }
+  }
+  return false;
+}
+</script>-->
+
+<!--<script>
+
+    var quizObj = [
+    { 
+        "question": "What is the capital of Bangladesh?",
+        "choice": ["Dhaka", "Chittagong", "Sylhet"],
+        "correct": ["Dhaka"]
+   },
+   { 
+        "question": "What does 2+2 equal to?",
+        "choice": ["3", "2", "4"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+        "correct": ["4"]
+   },
+    { 
+        "question": "What is the real name of Damon Salvatore?",
+        "choice": ["Paul Wesley", "Steven McQueen", "Ian Somerhalder"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+        "correct": ["Ian Somerhalder"]
+   },
+    { 
+        "question": "What is the name of the largest planet in the universe?",
+        "choice": ["Earth", "Jupiter", "Uranus"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+        "correct": ["Jupiter"]
+   },
+    { 
+        "question": "What is the capital of New York?",
+        "choice": ["Manhattan", "NYC", "Albany"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+        "correct": ["Albany"]
+   },
+    { 
+        "question": "How many bones does the human body have?",
+        "choice": ["109", "206", "114"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+        "correct": ["206"]
+   },
+    { 
+        "question": "What is the alter ego of Batman?",
+        "choice": ["Bruce Banner", "Bruce Wayne", "Tony Stark"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+        "correct": ["Bruce Wayne"]
+   },
+    { 
+        "question": "How many books are there in the Harry Potter series?",
+        "choice": ["7", "5", "8"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+        "correct": ["7"]
+   },
+    { 
+        "question": "What is Naruto's surname?",
+        "choice": ["Sarutobi", "Uchiha", "Uzumaki"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+        "correct": ["Uzumaki"]
+   },
+    { 
+        "question": "What is the name of Sherlock Holmes' partner?",
+        "choice": ["Peterson", "Watson", "Hanson"],  //quizObj[2].choice[0],quizObj[2].choice[1]
+        "correct": ["Watson"]
+   },
+
+];
+
+  var track = [];
+
+    var maxQues = prompt("How many questions do you want to answer?", "5");
+    var rand = Math.floor(Math.random() * maxQues);
+
+    var str='<h4>Answer all the questions</h4>';
+
+    for(var i=0;i<maxQues;i++){
+
+        var rand = Math.floor(Math.random() * maxQues);
+        str+=(i+1)+'.  '+quizObj[rand].question+'<br>';
+        str+='<form><table>'+
+            '<tr><td id="a1"><input type="radio" name="radio' + i + '" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[0]+'</td></tr>'+
+            '<tr><td id="a2"><input type="radio" name="radio' + i + '" />'+'&nbsp;&nbsp;'+quizObj[rand].choice[1]+'</td></tr>'+
+            '<tr><td id="a3"><input type="radio" name="radio' + i + '"/>'+'&nbsp;&nbsp;'+quizObj[rand].choice[2]+'</td></tr>'+
+        '</table></form><br>';
+    track[i]=rand;
+    }
+    str += '<input value="Submit" type="button" onclick="scoreMe()"><br><br>';
+    str += 'Score: <input id="score" type="text" size="8" ><br><br><br>';
+    document.getElementById('quesRes').innerHTML = str;
+
+  function scoreMe(){
+    var sum=0;
+    for(var j=0;j<maxQues;j++){
+      for(var k=0;k<3;k++){
+        if(quizObj[track[j]].choice[k].checked===quizObj[track[j]].correct[0]){
+          console.log('Works'+j);
+          sum++;
+        }
+      }
+    }
+    document.getElementById('score').value = ((sum/maxQues)*100)+'%';
+  }
+</script>-->
+
+
+</body>
+</html>

@@ -4,8 +4,8 @@
 
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    /*-webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: text;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-color: white;
     /*background-image:linear-gradient(top, #007FFF 0%, #0099FF 51%);
     background-image:-webkit-linear-gradient(top, #007FFF 0%, #0099FF 51%);
@@ -51,19 +51,32 @@ body {
 
 
 .header{
-    background-color: #333;
-    height: 70px;
+    background-color: rgb(30, 144, 255);
+    height: 90px;
+    width: 100%;
 }
 
-#header img{
-    width: 10px;
-    height: 10px;
+.sideNavIcon{
+    font-size:30px; 
+    cursor:pointer; 
+    padding-top: 25px;
+    margin-left: 30px; 
+    margin-top: 0px; 
+    color: white;
+}
 
+.headerLogo{
+    width: 220px;
+    height: 150px;
+    display: inline-block;
+    
+    margin-top: -70px;
+    padding: 0px;
 }
 
 
 .pageTitle{
-    color: #333;
+    color: rgb(30, 144, 255);
     font-stretch: 10px;
     text-transform:uppercase;
     font-weight: bold;
@@ -110,8 +123,8 @@ h1 {
 }
 
 .logo img{
-     width: 270px;
-    height: 150px;
+    /*width: 270px;
+    height: 150px;*/
     margin-top: 100px
 }
 
@@ -164,197 +177,51 @@ h1 {
 }
 
 
-
-/*.event {
-    border-radius:4px;
-    -webkit-border-radius:4px;
-    color:#FFFFFF;
-    font-size:12px;
-    margin:0px 30px;
-    padding:2px 0px;
-}
-
-.event.listening {
-    background-color:#333333;
-    display:block;
-}
-
-.event.received {
-    background-color:#4B946A;
-    display:none;
-}
-
-@keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
- 
-@-webkit-keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
- 
-.blink {
-    animation:fade 3000ms infinite;
-    -webkit-animation:fade 3000ms infinite;
-}*/
-
-
-
 /*------------------------Binary Converter------------------------*/
 
 .inputNumber{
     margin-top: 30px;
-
 }
 
 .inputNumberTxtBx{
     height: 20px;
     width: 200px;
-
+    border-color: rgb(30, 144, 255);
+    border-top: none;
+    border-left: none;
+    border-right: none; 
 }
 
 .convertBtn{
-    margin-left: 10px;
+    margin-left: 0px;
     height: 26px;
     display: inline;
     position: relative;
     font-weight: bold;
+    font-size: 16px;
+    color: white;
+    background-color: rgb(30, 144, 255);;
+    border: none;
 
 }
 
-/* The container */
+/* Convert radio buttons */
 .container {
     display: block;
     position: relative;
-    padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 15px;
+    font-weight: bold;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-}
-
-/* Hide the browser's default radio button */
-.container input {
-    position: absolute;
-    opacity: 0;
-}
-
-/* Create a custom radio button */
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50%;
-}
-
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-    background-color: #ccc;
-}
-
-/* When the radio button is checked, add a blue background */
-.container input:checked ~ .checkmark {
-    background-color: #2196F3;
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.container input:checked ~ .checkmark:after {
-    display: block;
-}
-
-/* Style the indicator (dot/circle) */
-.container .checkmark:after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: white;
-}
-
-
-
-/* The container */
-.containerTo {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-/* Hide the browser's default radio button */
-.containerTo input {
-    position: absolute;
-    opacity: 0;
-}
-
-/* Create a custom radio button */
-.checkmarkTo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50%;
-}
-
-/* On mouse-over, add a grey background color */
-.containerTo:hover input ~ .checkmarkTo {
-    background-color: #ccc;
-}
-
-/* When the radio button is checked, add a blue background */
-.containerTo input:checked ~ .checkmarkTo {
-    background-color: #2196F3;
-}
-
-/* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmarkTo:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-/* Show the indicator (dot/circle) when checked */
-.containerTo input:checked ~ .checkmarkTo:after {
-    display: block;
-}
-
-/* Style the indicator (dot/circle) */
-.containerTo .checkmarkTo:after {
-    top: 9px;
-    left: 9px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: white;
 }
 
 
 .fromtoContainer {
+    color: rgb(30, 144, 255);
     margin-top: -50px;
     display: flex;
     align-items: center;
@@ -364,20 +231,46 @@ h1 {
 .from{
     padding: 30px;
     display: inline-block;
-    margin-top: 50px;
+    margin-top: 25px;
+}
+
+.from p{
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .to{
-    padding: 30px;
+    padding: 20px;
     display: inline-block;
-    margin-top: 50px;
+    margin-top: 25px;
+}
+
+.to p{
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .convertResult{
-
+   margin-top: 30px;
+   margin-left: 10%;
+   
 }
 
+.convertResult p {
+    font-size: 18px;
+    color: rgb(30, 144, 255);
+    font-weight: bold;
+    
+}
+
+.convertResult output{
+    margin-left: 30px;
+}
+
+
 /*------------Overlay------------*/
+
+
 .overlay {
     height: 100%;
     width: 0;
@@ -385,10 +278,18 @@ h1 {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0, 0.9);
+    /*background-color: rgb(0,128,255);
+    background-color: rgba(0,128,255, 0.9);*/
+    background-color: rgb(255,255,255);
+    background-color: rgba(255,255,255, 0.9);
     overflow-x: hidden;
     transition: 0.5s;
+}
+
+.overlayHeader{
+    width: 100%;
+    height: 100px;
+    background-color: rgb(30, 144, 255);
 }
 
 .overlay-content {
@@ -402,21 +303,20 @@ h1 {
 .overlay a {
     padding: 8px;
     text-decoration: none;
-    font-size: 36px;
-    color: #818181;
+    font-size: 20px;
+    color: rgb(30, 144, 255);
     display: block;
     transition: 0.3s;
+    
 }
 
-.overlay a:hover, .overlay a:focus {
-    color: #f1f1f1;
-}
 
 .overlay .closebtn {
     position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
+    top: 5px;
+    right: 10px;
+    font-size: 40px;
+    color: white;
 }
 
 @media screen and (max-height: 450px) {
@@ -430,12 +330,11 @@ h1 {
 
 
 /*------------------------Lessons------------------------*/
-
     
 
     .lessonBody{
-        margin: 50px;
-        color: white;
+        margin: 8%;
+        color: rgb(30, 144, 255);
     }
 
     .lessonBody h4{
@@ -443,7 +342,7 @@ h1 {
     }
 
     .lessonParagraph{
-        margin-left: 20px;
+        margin-left: 3%;
         font-size: 18px;
     }
 
@@ -456,7 +355,7 @@ h1 {
     }
 
     .tableData{
-        margin-left: 30px;
+        margin-left: 10%;
         font-size: 18px;
     }
 
@@ -470,29 +369,30 @@ h1 {
 /*------------------------Quiz------------------------*/
     
     .roundBox{
-        width: 400px;
-        height: 400px;
+        width: 300px;
+        height: 250px;
         border-radius: 30%;
         background-color: #ddd;
-        margin-top: 70px;
+        margin-top: 50px;
     }
 
     .roundBoxTxt {
         vertical-align: middle;
         text-align: center;
-        color: #333;
-        font-size: 50px;
+        color: rgb(30, 144, 255);
+        font-size: 30px;
         font-weight: bold;
-        padding-top: 120px;
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-top: 100px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .readnstart{
         margin-top: 70px;
+        /*margin-left: 47%;*/
         height: 30px;
         width: 80px;
-        background-color: #333;
+        background-color: rgb(30, 144, 255);
         border-radius: 10px;
         padding-top: 5px;
         padding-bottom: 0px;
@@ -503,15 +403,16 @@ h1 {
         font-weight: bold;
         color: white;
         text-decoration: none;
+        /*margin-left: 20%;*/
     }
 
     .randomQuestions{
         vertical-align: middle;
         text-align: center;
-        color: #333;
+        color: rgb(30, 144, 255);
         font-size: 30px;
         font-weight: bold;
-        padding-top: 150px;
+        padding-top: 60px;
         padding-right: 30px;
         padding-left: 30px;
         left: 50%
@@ -519,8 +420,8 @@ h1 {
     }
 
     .qchoices{
-        margin-top: 60px;
-        left: 50%;
+        margin-top: 40px;
+        margin-left: 45%;
         /*display: flex;*/
         align-items: center;
         justify-content: center;
@@ -529,7 +430,123 @@ h1 {
 
 
     .choices{
-
+        color: rgb(30, 144, 255);
+        font-size: 20px;
         display: block;
     }
+
+    .prev-btn{
+        position: absolute;
+        border: none;
+        background-color: white;
+        color: rgb(30, 144, 255);
+        font-size: 20px;
+        margin-left: -50px;
+    }
+
+    .next-btn{
+        position: absolute;
+        border: none;
+        background-color: white;
+        color: rgb(30, 144, 255);
+        font-size: 20px;
+        margin-left: 200px;
+    }
+
+    .resultBox_container{
+        width: 300px;
+        height: 250px;
+        border-radius: 30%;
+        background-color: #ddd;
+        margin-top: 40px;
+        
+    }
+
+
+    .resultBox_container p{
+        font-size: 120px;
+        padding-top: 110px;
+    }
+
+    .resultText p{
+        font-size: 30px;
+        color: rgb(30, 144, 255);
+    }
+
+    .viewAnsKey{
+        margin-top: 40px;
+        height: 60px;
+        width: 150px;
+        background-color: rgb(30, 144, 255);
+        border-radius: 10px;
+        padding-top: 5px;
+        padding-bottom: 0px;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .container_answerKey{
+        margin-top: 50px;
+        color: rgb(30, 144, 255);
+        text-align: left;
+        margin-left: 35%; 
+    }
+
+    .container_answerKey p{
+        margin-top: 20px;
+        color: rgb(30, 144, 255);
+        font-size: 30px;
+
+    }
+
+
+/*------------------------About------------------------*/    
+    .aboutAppName{
+        margin-top: -20px;
+        color: rgb(30, 144, 255);
+        font-size: 30px;
+
+    }
+
+    .aboutVersion{
+        margin-top: -25px;
+        color: gray;
+        font-size: 15px;
+
+    }
+
+    .aboutDescription{
+        margin-top: 20px;
+        margin-left: 10%;
+        margin-right: 10%;
+        color: rgb(30, 144, 255);
+        font-size: 20px;
+
+    }
+
+    .aboutSubtopic{
+        margin-top: 50px;
+        margin-bottom: 30px;
+        color: rgb(30, 144, 255);
+        font-size: 30px;
+
+    }
+
+    .developerInfo{
+        margin-top: 0px;
+        margin-left: 20%;
+        margin-bottom: 60px;
+        font-size: 15px;
+       color: rgb(30, 144, 255); 
+    }
+
+    .profile img{
+        border-radius: 50%;
+    }
+
+
+
+
+/*Dev*/
 

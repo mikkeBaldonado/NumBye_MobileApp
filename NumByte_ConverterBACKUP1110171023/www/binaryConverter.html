@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+<body>
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="binaryConverter.html">Byte Converter</a>
+    <a href="NumberConverter.html">Number Converter</a>
+    <a href="lesson.html">Learn About Conversion</a>
+    <a href="quizStarter.html">Short Quiz</a>
+  </div>
+</div>
+
+<div class="header">
+  <span style="font-size:30px; cursor:pointer; margin-left: 20px; color: white;" onclick="openNav()">&#9776;</span>
+</div>
+
+<script>
+function openNav() {
+    document.getElementById("myNav").style.width = "50%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
+</script>
+
+<h1 class="pageTitle">Binary Converter</h1>
+<div class="inputNumber">
+  <form>
+        <center>
+          <input type="number" class="inputNumberTxtBx" id="firstNumber" />
+          <input type="button" class="convertBtn" onClick="convert()" Value="Convert"/> 
+        </center> 
+  </form>
+</div>
+<div class="fromtoContainer">
+  <div class="from">
+    <label class="containerFrom">Bit
+      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value= 1>
+      <span class="checkmark"></span>
+    </label>
+    <label class="containerFrom">Byte
+      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value= 2>
+      <span class="checkmark"></span>
+    </label>
+    <label class="containerFrom">Kilobyte
+      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value= 3>
+      <span class="checkmark"></span>
+    </label>
+    <label class="containerFrom">Megabyte
+      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value= 4>
+      <span class="checkmark"></span>
+    </label>
+    <label class="containerFrom">Gigabyte
+      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value= 5>
+      <span class="checkmark"></span>
+    </label>
+    <label class="containerFrom">Terabyte
+      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value= 6>
+      <span class="checkmark"></span>
+    </label>
+    <label class="containerFrom">Petabyte
+      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value= 7>
+      <span class="checkmark"></span>
+    </label>
+  </div>
+
+  <div class="to">
+    <label class="containerTo">Bit
+      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value=1>
+      <span class="checkmarkTo"></span>
+    </label>
+    <label class="containerTo">Byte
+      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value=2>
+      <span class="checkmarkTo"></span>
+    </label>
+    <label class="containerTo">Kilobyte
+      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value=3>
+      <span class="checkmarkTo"></span>
+    </label>
+    <label class="containerTo">Megabyte
+      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value=4>
+      <span class="checkmarkTo"></span>
+    </label>
+    <label class="containerTo">Gigabyte
+      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value=5>
+      <span class="checkmarkTo"></span>
+    </label>
+    <label class="containerTo">Terabyte
+      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value=6>
+      <span class="checkmarkTo"></span>
+    </label>
+    <label class="containerTo">Petabyte
+      <input type="radio" id="to" name="to" onclick="getVal2(this.value) " value=7>
+      <span class="checkmarkTo"></span>
+    </label>
+  </div>
+</div>
+
+
+
+<div class="convertResult">
+  <p >RESULT : <br>
+    <output id = "cfrom"></output>
+    <output id = "cto"></output>
+    <output id = "result3"></output>
+  </p>
+</div>
+
+  
+
+
+
+<script language="javascript">
+
+    function getVal(from)
+    {
+      document.getElementById("cfrom").value = from;
+
+    }
+
+    function getVal2(to)
+    {
+      document.getElementById("cto").value = to;
+    }
+
+
+    function convert()
+    {
+       cfrom = Number(document.getElementById("cfrom").value);
+       cto = Number(document.getElementById("cto").value);
+       size = document.getElementById("firstNumber").value;
+
+      
+      /*if(cfrom == 1 && cto == 1){
+        document.getElementById("result2").value = size;
+      }
+      else if(cfrom == 1 && cto == 2) {
+        document.getElementById("result2").value = size / 8;
+      }
+      else if(cfrom == 1 && cto == 3) {
+        document.getElementById("result2").value = (size / 8) / 8;
+      }
+      else if(cfrom == 1 && cto == 4) {
+        document.getElementById("result2").value = ((size / 8) / 8) / 8;
+      }
+      else if(cfrom == 1 && cto == 5) {
+        document.getElementById("result2").value = (((size / 8) / 8) / 8) / 8;
+      }
+      else if(cfrom == 1 && cto == 6) {
+        document.getElementById("result2").value = ((((size / 8) / 8) / 8) / 8) / 8;
+      }
+      else{
+        document.getElementById("result2").value = size * 8;
+      }*/
+
+
+        if(cfrom < cto){
+            if(cfrom == 1 && cto != 1){
+                var bytesize = size/8 ;
+                if (cfrom == 1 && cto == 2){
+                    document.getElementById("result3").innerHTML = bytesize;
+                }
+                else{
+                    for(var x = 1; x < cto-cfrom; x++ ){
+                      bytesize/=1024;
+                    }
+                    document.getElementById("result3").innerHTML = bytesize;
+                }
+            }
+            else{
+                for(var x=0; x < cto-cfrom; x++ ){
+                    size/=1024;
+                }
+                document.getElementById("result3").innerHTML = size;
+            }
+                
+        }
+        else if (cfrom > cto ){
+            if( cfrom != 1 && cto == 1){
+                var bytesize = size*8 ;
+                if (cfrom == 2 && cto == 1){
+                    document.getElementById("result3").innerHTML = bytesize;
+                }
+                else{
+                    for(var x=1; x < cfrom-cto; x++ ){
+                      bytesize*=1024;
+                      document.getElementById("result3").innerHTML = bytesize;
+                    }
+                }
+            }
+            else{
+                for(var x=0; x < cfrom-cto; x++ ){
+                  size*=1024;
+                }
+                document.getElementById("result3").innerHTML = size;
+            }
+            
+        }
+        else{
+            document.getElementById("result3").innerHTML = size; //equal
+        }
+      
+    }
+
+</script>
+
+</body>
+</html>

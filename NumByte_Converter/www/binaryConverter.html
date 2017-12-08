@@ -1,27 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="css/index.css" />
+  <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+  <link rel="stylesheet" type="text/css" href="css/index.css"/>
 </head>
 <body>
 
 <div id="myNav" class="overlay">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlayHeader">
+    <center><div class="overlayHeaderLogo"><img src="img/NumByteLogo2.png" style="width: 220px; height: 100px;"></div></center>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  </div>
   <div class="overlay-content">
     <a href="binaryConverter.html">Byte Converter</a>
     <a href="NumberConverter.html">Number Converter</a>
-    <a href="lesson.html">Lesson</a>
-    <a href="quizStarter.html">Quiz</a>
+    <a href="lessonStarter.html">Learn About Conversion</a>
+    <a href="quizStarter.html">Short Quiz</a>
+    <a href="about.html">About</a>
   </div>
 </div>
 
 <div class="header">
-  <span style="font-size:30px; cursor:pointer; margin-left: 20px; color: white;" onclick="openNav()">&#9776;</span>
+  <div class="sideNavIcon" onclick="openNav()">&#9776;</div>
+  <center><div class="headerLogo"><img src="img/NumByteLogo2.png" style="width: 220px; height: 100px;"></div></center>
 </div>
 
 <script>
 function openNav() {
-    document.getElementById("myNav").style.width = "50%";
+    document.getElementById("myNav").style.width = "70%";
 }
 
 function closeNav() {
@@ -29,188 +40,104 @@ function closeNav() {
 }
 </script>
 
-<h1 class="pageTitle">Binary Converter</h1>
+<h1 class="pageTitle">Byte Converter</h1>
+
+<center>
 <div class="inputNumber">
   <form>
-        <center>
+        
+          <input type="button" class="convertBtn" onClick="convert()" Value="Convert"/> 
           <input type="number" class="inputNumberTxtBx" id="firstNumber" />
-          <input type="button" class="convertBtn" onClick="convert()" Value="Convert" /> 
-        </center> 
+          
   </form>
-    
+  </center> 
 </div>
+<div class="convertResult">
+  <p>Result : <output id = "result3"></output></p>
+</div>
+
 <div class="fromtoContainer">
   <div class="from">
-    <label class="container">Bit
-      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value= 1>
+    <p>Convert From: </p>
+    <label class="container">
+      <input type="radio" id="from" name="from" onclick="checkFrom()" value= 1>
       <span class="checkmark"></span>
+      Bit
     </label>
-    <label class="container">Byte
-      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value= 2>
+    <label class="container">
+      <input type="radio" id="from" name="from" onclick="checkFrom()" value= 2>
       <span class="checkmark"></span>
+      Byte
     </label>
-    <label class="container">Kilobyte
-      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value= 3>
+    <label class="container">
+      <input type="radio" id="from" name="from" onclick="checkFrom()" value= 3>
       <span class="checkmark"></span>
+      Kilobyte
     </label>
-    <label class="container">Megabyte
-      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value= 4>
+    <label class="container">
+      <input type="radio" id="from" name="from" onclick="checkFrom()" value= 4>
       <span class="checkmark"></span>
+      Megabyte
     </label>
-    <label class="container">Gigabyte
-      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value= 5>
+    <label class="container">
+      <input type="radio" id="from" name="from" onclick="checkFrom()" value= 5>
       <span class="checkmark"></span>
+      Gigabyte
     </label>
-    <label class="container">Terabyte
-      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value= 6>
+    <label class="container">
+      <input type="radio" id="from" name="from" onclick="checkFrom()" value= 6>
       <span class="checkmark"></span>
+      Terabyte
     </label>
-    <label class="container">Petabyte
-      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value= 7>
+    <label class="container">
+      <input type="radio" id="from" name="from" onclick="checkFrom()" value= 7>
       <span class="checkmark"></span>
+      Petabyte
     </label>
   </div>
 
   <div class="to">
-    <label class="containerTo">Bit
-      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value=1>
-      <span class="checkmarkTo"></span>
+    <p>Convert To: </p>
+    <label class="container">
+      <input type="radio" id="to" name="to" onclick="checkTo()" value=1>
+      <span class="checkmark"></span>
+      Bit
     </label>
-    <label class="containerTo">Byte
-      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value=2>
-      <span class="checkmarkTo"></span>
+    <label class="container">
+      <input type="radio" id="to" name="to" onclick="checkTo()" value=2>
+      <span class="checkmark"></span>
+      Byte
     </label>
-    <label class="containerTo">Kilobyte
-      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value=3>
-      <span class="checkmarkTo"></span>
+    <label class="container">
+      <input type="radio" id="to" name="to" onclick="checkTo()" value=3>
+      <span class="checkmark"></span>
+      Kilobyte
     </label>
-    <label class="containerTo">Megabyte
-      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value=4>
-      <span class="checkmarkTo"></span>
+    <label class="container">
+      <input type="radio" id="to" name="to" onclick="checkTo()" value=4>
+      <span class="checkmark"></span>
+      Megabyte
     </label>
-    <label class="containerTo">Gigabyte
-      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value=5>
-      <span class="checkmarkTo"></span>
+    <label class="container">
+      <input type="radio" id="to" name="to" onclick="checkTo()" value=5>
+      <span class="checkmark"></span>
+      Gigabyte
     </label>
-    <label class="containerTo">Terabyte
-      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value=6>
-      <span class="checkmarkTo"></span>
+    <label class="container">
+      <input type="radio" id="to" name="to" onclick="checkTo()" value=6>
+      <span class="checkmark"></span>
+      Terabyte
     </label>
-    <label class="containerTo">Petabyte
-      <input type="radio" id="to" name="to" onclick="getVal2(this.value) " value=7>
-      <span class="checkmarkTo"></span>
+    <label class="container">
+      <input type="radio" id="to" name="to" onclick="checkTo() " value=7>
+      <span class="checkmark"></span>
+      Petabyte
     </label>
   </div>
 </div>
 
-
-<center>
-<div class="convertResult">
-  <p >RESULT : <br>
-    
-    <output id = "cfrom"></output>
-    <output id = "cto"></output>
-    <output id = "result3"></output>
-  </p>
-</div>
-</center>
   
-
-
-
-<script language="javascript">
-
-    function getVal(from)
-    {
-      document.getElementById("cfrom").value = from;
-
-    }
-
-    function getVal2(to)
-    {
-      document.getElementById("cto").value = to;
-    }
-
-
-    function convert()
-    {
-       cfrom = Number(document.getElementById("cfrom").value);
-       cto = Number(document.getElementById("cto").value);
-       size = document.getElementById("firstNumber").value;
-
-      
-      /*if(cfrom == 1 && cto == 1){
-        document.getElementById("result2").value = size;
-      }
-      else if(cfrom == 1 && cto == 2) {
-        document.getElementById("result2").value = size / 8;
-      }
-      else if(cfrom == 1 && cto == 3) {
-        document.getElementById("result2").value = (size / 8) / 8;
-      }
-      else if(cfrom == 1 && cto == 4) {
-        document.getElementById("result2").value = ((size / 8) / 8) / 8;
-      }
-      else if(cfrom == 1 && cto == 5) {
-        document.getElementById("result2").value = (((size / 8) / 8) / 8) / 8;
-      }
-      else if(cfrom == 1 && cto == 6) {
-        document.getElementById("result2").value = ((((size / 8) / 8) / 8) / 8) / 8;
-      }
-      else{
-        document.getElementById("result2").value = size * 8;
-      }*/
-
-
-        if(cfrom < cto){
-            if(cfrom == 1 && cto != 1){
-                var bytesize = size/8 ;
-                if (cfrom == 1 && cto == 2){
-                    document.getElementById("result3").innerHTML = bytesize;
-                }
-                else{
-                    for(var x = 1; x < cto-cfrom; x++ ){
-                      bytesize/=1024;
-                    }
-                    document.getElementById("result3").innerHTML = bytesize;
-                }
-            }
-            else{
-                for(var x=0; x < cto-cfrom; x++ ){
-                    size/=1024;
-                }
-                document.getElementById("result3").innerHTML = size;
-            }
-                
-        }
-        else if (cfrom > cto ){
-            if( cfrom != 1 && cto == 1){
-                var bytesize = size*8 ;
-                if (cfrom == 2 && cto == 1){
-                    document.getElementById("result3").innerHTML = bytesize;
-                }
-                else{
-                    for(var x=1; x < cfrom-cto; x++ ){
-                      bytesize*=1024;
-                      document.getElementById("result3").innerHTML = bytesize;
-                    }
-                }
-            }
-            else{
-                for(var x=0; x < cfrom-cto; x++ ){
-                  size*=1024;
-                }
-                document.getElementById("result3").innerHTML = size;
-            }
-            
-        }
-        else{
-            document.getElementById("result3").innerHTML = size; //equal
-        }
-      
-    }
-
-</script>
+<script src="binaryConverter.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+<body>
+
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="binaryConverter.html">Byte Converter</a>
+    <a href="NumberConverter.html">Number Converter</a>
+    <a href="lesson.html">Learn About Conversion</a>
+    <a href="quizStarter.html">Short Quiz</a>
+  </div>
+</div>
+
+<div class="header">
+  <span style="font-size:30px; cursor:pointer; margin-left: 20px; color: white;" onclick="openNav()">&#9776;</span>
+</div>
+
+<script>
+function openNav() {
+    document.getElementById("myNav").style.width = "50%";
+}
+
+function closeNav() {
+    document.getElementById("myNav").style.width = "0%";
+}
+</script>
+<h1 class="pageTitle">Number Converter</h1>
+<div class="inputNumber">
+  <form>
+        <center>
+          <input type="text" class="inputNumberTxtBx" id="val" />
+          <input type="button" class="convertBtn" onClick="compute()" Value="Convert" /> 
+        </center> 
+  </form>
+</div>
+<!--<div >
+  <form>
+        <center><input type="text" class="numberInput" id="val" /></center><br>
+        <input type="button" onClick="compute()" Value="convert" />
+  </form>
+</div>-->
+<div class="fromtoContainer">
+  <div class="from">
+    <label class="container">Binary
+      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value = 1>
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Octal
+      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value = 2>
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Decimal
+      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value = 3>
+      <span class="checkmark"></span>
+    </label>
+    <label class="container">Hexadecimal
+      <input type="radio" id="from" name="from" onclick="getVal(this.value)" value = 4>
+      <span class="checkmark"></span>
+    </label>
+  </div>
+
+  <div class="to">
+    <label class="containerTo">Binary
+      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value = 1>
+      <span class="checkmarkTo"></span>
+    </label>
+    <label class="containerTo">Octal
+      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value = 2>
+      <span class="checkmarkTo"></span>
+    </label>
+    <label class="containerTo">Decimal
+      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value = 3>
+      <span class="checkmarkTo"></span>
+    </label>
+    <label class="containerTo">Hexadecimal
+      <input type="radio" id="to" name="to" onclick="getVal2(this.value)" value = 4>
+      <span class="checkmarkTo"></span>
+    </label>
+  </div>
+</div>
+
+
+ <div class="convertResult"> 
+  <p>RESULT : <br>
+    <output id = "cfrom"></output>
+    <output id = "cto"></output>
+    <output id = "result3"></output>
+  </p>
+</div>
+
+     <!--<script src="baseConverter.js"></script>-->
+
+
+<script language="javascript">
+    
+    function getVal(from)
+    {
+      document.getElementById("cfrom").value = from;
+    }
+
+    function getVal2(to)
+    {
+      document.getElementById("cto").value = to;
+    }
+
+function dec_to_bho(n, base){
+ 
+    if (n < 0) {
+      n = 0xFFFFFFFF + n + 1;
+    }
+    switch (base){  
+      case 'B':  
+      return parseInt(n, 8).toString(2);
+      break;  
+      case 'H':  
+      return parseInt(n, 8).toString(16);
+      break;  
+      case 'D':  
+      return parseInt(n, 8).toString(10);
+      break;  
+      case 'BO':  
+      return parseInt(n, 2).toString(8);
+      break;  
+      case 'HO':  
+      return parseInt(n, 16).toString(8);
+      break;  
+      case 'DO':  
+      return parseInt(n, 10).toString(8);
+      break;
+      default:  
+      return("Wrong input.........");  
+      }
+} 
+
+<!--to hide script contents from old browsers
+function initArray() {
+    this.length = initArray.arguments.length;
+    for (var i = 0; i < this.length; i++)
+        this[i] = initArray.arguments[i];
+}
+    
+function from10toradix(value,radix){
+    var retval = '';
+    var ConvArray = new initArray(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F');
+    var intnum;
+    var tmpnum;
+    var i = 0;
+
+    intnum = parseInt(value,10);
+    if (isNaN(intnum)){
+        retval = 'NaN';
+    }else{
+        if (intnum < 1){
+            retval ="0";
+        }else{
+            retval = "";
+        }
+        while (intnum > 0.9){
+            i++;
+            tmpnum = intnum;
+            // cancatinate return string with new digit:
+            retval = ConvArray[tmpnum % radix] + retval;  
+            intnum = Math.floor(tmpnum / radix);
+            if (i > 100){
+                // break infinite loops
+                retval = 'NaN';
+                break;
+            }
+        }
+    }
+    return retval;
+}
+
+
+/* there is no way to get the value of a radio button. 
+ * Order matters ! */
+function compute() {
+    cfrom = Number(document.getElementById("cfrom").value);
+    cto = Number(document.getElementById("cto").value);
+    val = document.getElementById("val").value;
+
+    var tmpvar;
+    if (cfrom == 3 && cto == 4){
+        // d2h
+        document.getElementById("result3").innerHTML = "Hex: " +  from10toradix(val,16);
+    }else if (cfrom == 4 && cto == 3){
+        // h2d
+        document.getElementById("result3").innerHTML = "Dec: " + parseInt(val,16);
+    }else if (cfrom == 3 && cto == 1){
+        // d2b
+        document.getElementById("result3").innerHTML = "Bin: " + from10toradix(val,2);
+    }else if (cfrom == 1 && cto == 3){
+        // b2d
+        document.getElementById("result3").innerHTML = "Dec: " + parseInt(val,2);
+    }else if (cfrom == 2 && cto == 1){
+        // o2b
+        document.getElementById("result3").innerHTML = "Oct: " + dec_to_bho(val,'B');
+    }else if (cfrom == 1 && cto == 2){
+        // b2o
+        document.getElementById("result3").innerHTML = "Bin: " + dec_to_bho(val,'BO');
+    }else if (cfrom == 2 && cto == 3){
+        // d2b
+        document.getElementById("result3").innerHTML = "Dec: " + dec_to_bho(val,'D');
+    }else if (cfrom == 3 && cto == 2){
+        // b2d
+        document.getElementById("result3").innerHTML = "Oct: " + dec_to_bho(val,'DO');
+    }else if (cfrom == 2 && cto == 4){
+        // d2b
+        document.getElementById("result3").innerHTML = "Hex: " + dec_to_bho(val,'H');
+    }else if (cfrom == 4 && cto == 2){
+        // b2d
+        document.getElementById("result3").innerHTML = "Oct: " + dec_to_bho(val,'HO');
+    }else if (cfrom == 1 && cto == 4){
+        // b2h
+        tmpvar = parseInt(val,2);
+        if (isNaN(tmpvar)){
+            document.getElementById("result3").innerHTML = 'NaN';
+        }else{
+            document.getElementById("result3").innerHTML = "Hex: " + from10toradix(tmpvar,16);
+        }
+    }else if (cfrom == 4 && cto == 1){
+        // h2b
+        tmpvar = parseInt(val,16);
+        if (isNaN(tmpvar)){
+            document.getElementById("result3").innerHTML = 'NaN';
+        }else{
+            document.getElementById("result3").innerHTML = "Bin: " + from10toradix(tmpvar,2);
+        }
+    }else if (cfrom == 1 && cto == 1){
+        // b2b
+        document.getElementById("result3").innerHTML = "Bin: " + val;
+    }
+    else if (cfrom == 2 && cto == 2){
+        // o2o
+        document.getElementById("result3").innerHTML = "oct: " + val;
+    }else if (cfrom == 3 && cto == 3){
+        // d2d
+        document.getElementById("result3").innerHTML = "Dec: " + val;
+    }else if (cfrom == 4 && cto == 4){
+        //h2h
+        document.getElementById("result3").innerHTML = "Hex: " + val;
+    }else{
+        alert("ERROR: No such conversion type");
+    }
+}
+// end hiding contents from old browsers  -->
+    /*dec_to_bho = function(n, base) {
+     
+        if (n < 0) {
+          n = 0xFFFFFFFF + n + 1;
+         } 
+    switch (base)  
+    {  
+    case 'B':  
+    return parseInt(n, 10).toString(2);
+    break;  
+    case 'H':  
+    return parseInt(n, 10).toString(16);
+    break;  
+    case 'O':  
+    return parseInt(n, 10).toString(8);
+    break;  
+    default:  
+    return("Wrong input.........");  
+    }  
+    }
+
+    console.log(dec_to_bho(120,'B'));
+    console.log(dec_to_bho(120,'H'));
+    console.log(dec_to_bho(120,'O'));*/
+
+
+/*(function(){
+ 
+    var ConvertBase = function (num) {
+        return {
+            from : function (baseFrom) {
+                return {
+                    to : function (baseTo) {
+                        return parseInt(num, baseFrom).toString(baseTo);
+                    }
+                };
+            }
+        };
+    };
+        
+    // binary to decimal
+    ConvertBase.cnvrt = function (num) {
+        return ConvertBase(num).from(cfrom).to(cto);
+    };
+       
+    this.ConvertBase = ConvertBase;
+    
+})(this);
+
+document.getElementById("result3").innerHTML = (ConvertBase.cnvrt(val));*/
+//alert(ConvertBase.cnvrt(val));
+//console.log(ConvertBase.cnvrt(val));
+
+    /*cfrom = Number(document.getElementById("cfrom").value);
+    cto = Number(document.getElementById("cto").value);
+    val = document.getElementById("val").value;
+
+   var ConvertBase = function (val) {
+        return {
+            from : function (baseFrom) {
+                return {
+                    to : function (baseTo) {
+                        return parseInt(num, baseFrom).toString(baseTo);
+                    }
+                };
+            }
+        };
+    };
+        
+    // binary to decimal
+    ConvertBase.bin2dec = function (val) {
+        return ConvertBase(val).from(cfrom).to(cto);
+    };*/
+    
+    /*// binary to hexadecimal
+    ConvertBase.bin2hex = function (val) {
+        return ConvertBase(num).from(2).to(16);
+    };
+    
+    // decimal to binary
+    ConvertBase.dec2bin = function (val) {
+        return ConvertBase(num).from(10).to(2);
+    };
+    
+    // decimal to hexadecimal
+    ConvertBase.dec2hex = function (val) {
+        return ConvertBase(num).from(10).to(16);
+    };
+    
+    // hexadecimal to binary
+    ConvertBase.hex2bin = function (val) {
+        return ConvertBase(num).from(16).to(2);
+    };
+    
+    // hexadecimal to decimal
+    ConvertBase.hex2dec = function (val) {
+        return ConvertBase(num).from(16).to(10);
+    };*/
+    
+    //this.ConvertBase = ConvertBase;
+
+    //document.getElementById("result3").innerHTML = ConvertBase.bin2dec(val);
+
+    /*alert(ConvertBase.bin2dec('1100'));
+    console.log(ConvertBase.bin2dec('1100'));*/
+
+</script>
+
+</body>
+</html>
