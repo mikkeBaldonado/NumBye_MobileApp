@@ -30,37 +30,44 @@ body {
 /* Portrait layout (default) */
 .app {
     /*background:url(../img/logo.png) no-repeat center top;  170px x 200px */
-    position:absolute;             /* position in the center of the screen */
-    height:50px;                   /* text area height */
-    width:225px;                   /* text area width */
-    text-align:center;
-    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
-    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+    /*position:absolute;              position in the center of the screen */
+    height:100%;                   /* text area height */
+    width:100%;                   /* text area width */
+    /*text-align:center;*/
+    padding:0px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:0px 0px 0px 0px;  /* offset vertical: half of image height and text area height */
                                    /* offset horizontal: half of text area width */
 }
 
 /* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-position:left center;
-        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
-        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
-                                      /* offset horizontal: half of image width and text area width */
+@media screen and (min-aspect-ratio: 1/1) and (max-width:768px) {
+    body{
+        font-size: 10px;
     }
+    .app {
+        /*background-position:left center;*/
+        padding:0px 0px 0px 0px;  /* padding-top + padding-bottom + text area = image height */
+        margin:0px 0px 0px 0px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+
+    }
+
 }
 
-
+/*------------Common Css------------*/
 .header{
+    position: fixed;
     background-color: rgb(30, 144, 255);
     height: 90px;
     width: 100%;
+    margin-top: -116px;
 }
 
 .sideNavIcon{
     font-size:30px; 
     cursor:pointer; 
     padding-top: 25px;
-    margin-left: 30px; 
+    margin-left: 5%; 
     margin-top: 0px; 
     color: white;
 }
@@ -80,13 +87,14 @@ body {
     font-stretch: 10px;
     text-transform:uppercase;
     font-weight: bold;
-    font-size: 30px
+    font-size: 25px;
 }
 
 h1 {
-    font-size:24px;
+    /*font-size:24px;*/
+    position: relative;
     font-weight:normal;
-    margin-top: 40px;
+    margin-top: 115px;
     overflow:visible;
     padding:0px;
     text-align:center;
@@ -177,7 +185,7 @@ h1 {
 }
 
 
-/*------------------------Binary Converter------------------------*/
+/*------------------------Byte and Number Converter------------------------*/
 
 .inputNumber{
     margin-top: 30px;
@@ -185,7 +193,7 @@ h1 {
 
 .inputNumberTxtBx{
     height: 20px;
-    width: 200px;
+    width: 180px;
     border-color: rgb(30, 144, 255);
     border-top: none;
     border-left: none;
@@ -193,7 +201,7 @@ h1 {
 }
 
 .convertBtn{
-    margin-left: 0px;
+    margin-left: 1%;
     height: 26px;
     display: inline;
     position: relative;
@@ -229,43 +237,31 @@ h1 {
 }
 
 .from{
-    padding: 30px;
+    padding: 20px;
     display: inline-block;
-    margin-top: 25px;
-}
-
-.from p{
-    font-size: 20px;
+    margin-top: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
+
 
 .to{
     padding: 20px;
     display: inline-block;
-    margin-top: 25px;
-}
-
-.to p{
-    font-size: 20px;
+    margin-top: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 
 .convertResult{
-   margin-top: 30px;
-   margin-left: 10%;
-   
+   margin-top: 25px;
+   margin-left: 14%;
+   font-size: 18px;
+   color: rgb(30, 144, 255);
+   font-weight: bold;
 }
 
-.convertResult p {
-    font-size: 18px;
-    color: rgb(30, 144, 255);
-    font-weight: bold;
-    
-}
 
-.convertResult output{
-    margin-left: 30px;
-}
 
 
 /*------------Overlay------------*/
@@ -294,7 +290,7 @@ h1 {
 
 .overlay-content {
     position: relative;
-    top: 25%;
+    top: 10%;
     width: 100%;
     text-align: center;
     margin-top: 30px;
@@ -303,7 +299,7 @@ h1 {
 .overlay a {
     padding: 8px;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 25px;
     color: rgb(30, 144, 255);
     display: block;
     transition: 0.3s;
@@ -313,8 +309,8 @@ h1 {
 
 .overlay .closebtn {
     position: absolute;
-    top: 5px;
-    right: 10px;
+    top: -1%;
+    right: 1%;
     font-size: 40px;
     color: white;
 }
@@ -329,51 +325,13 @@ h1 {
 }
 
 
-/*------------------------Lessons------------------------*/
-    
-
-    .lessonBody{
-        margin: 8%;
-        color: rgb(30, 144, 255);
-    }
-
-    .lessonBody h4{
-        font-size: 25px;
-    }
-
-    .lessonParagraph{
-        margin-left: 3%;
-        font-size: 18px;
-    }
-
-    .subTopic{
-        font-size: 20px;
-    }
-
-    .bulletlist li{
-        font-size: 18px;
-    }
-
-    .tableData{
-        margin-left: 10%;
-        font-size: 18px;
-    }
-
-    .rowValues{
-        font-size: 18px;
-        margin-left: 70px;
-    }
-
-
-
-/*------------------------Quiz------------------------*/
-    
-    .roundBox{
+/*------------------------Lessons and Quiz Common css------------------------*/
+.roundBox{
         width: 300px;
         height: 250px;
         border-radius: 30%;
         background-color: #ddd;
-        margin-top: 50px;
+        margin-top: 115px;
     }
 
     .roundBoxTxt {
@@ -406,6 +364,48 @@ h1 {
         /*margin-left: 20%;*/
     }
 
+/*------------------------Lessons------------------------*/
+    
+
+    .lessonBody{
+        margin: 8%;
+        color: rgb(30, 144, 255);
+    }
+
+    .lessonBody h4{
+        font-size: 25px;
+    }
+
+    .lessonParagraph{
+        text-align: justify;
+        margin-left: 3%;
+        font-size: 18px;
+        font-weight: 100;
+    }
+
+    .subTopic{
+        font-size: 20px;
+    }
+
+    .bulletlist li{
+        font-size: 18px;
+    }
+
+    .tableData{
+        margin-left: 8%;
+        font-size: 100%;
+        font-weight: bold;
+    }
+
+    .rowValues{
+        font-size: 18px;
+        margin-left: 70%;
+    }
+
+
+
+/*------------------------Quiz------------------------*/
+
     .randomQuestions{
         vertical-align: middle;
         text-align: center;
@@ -421,7 +421,7 @@ h1 {
 
     .qchoices{
         margin-top: 40px;
-        margin-left: 45%;
+        margin-left: 30%;
         /*display: flex;*/
         align-items: center;
         justify-content: center;
@@ -441,7 +441,7 @@ h1 {
         background-color: white;
         color: rgb(30, 144, 255);
         font-size: 20px;
-        margin-left: -50px;
+        margin-left: -10%;
     }
 
     .next-btn{
@@ -449,32 +449,33 @@ h1 {
         border: none;
         background-color: white;
         color: rgb(30, 144, 255);
-        font-size: 20px;
-        margin-left: 200px;
+        font-size: 25px;
+        margin-left: 40%;
     }
 
     .resultBox_container{
-        width: 300px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
         border-radius: 30%;
         background-color: #ddd;
-        margin-top: 40px;
+        margin-top: 5%;
         
     }
 
 
     .resultBox_container p{
-        font-size: 120px;
-        padding-top: 110px;
+        margin-top: 5px;
+        padding-top: 30%;
     }
 
     .resultText p{
-        font-size: 30px;
+        margin-top: 35%;  
+        font-size: 2em;
         color: rgb(30, 144, 255);
     }
 
     .viewAnsKey{
-        margin-top: 40px;
+        margin-top: 50px;
         height: 60px;
         width: 150px;
         background-color: rgb(30, 144, 255);
@@ -487,10 +488,10 @@ h1 {
     }
 
     .container_answerKey{
-        margin-top: 50px;
+        margin-top: 115px;
         color: rgb(30, 144, 255);
         text-align: left;
-        margin-left: 35%; 
+        margin-left: 5%; 
     }
 
     .container_answerKey p{
@@ -544,7 +545,6 @@ h1 {
     .profile img{
         border-radius: 50%;
     }
-
 
 
 

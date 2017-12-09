@@ -9,9 +9,10 @@
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
   <link rel="stylesheet" type="text/css" href="css/index.css"/>
 </head>
-<body>
 
-<div id="myNav" class="overlay">
+<body>
+<div class="app">
+  <div id="myNav" class="overlay">
   <div class="overlayHeader">
     <center><div class="overlayHeaderLogo"><img src="img/NumByteLogo2.png" style="width: 220px; height: 100px;"></div></center>
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -44,16 +45,15 @@ function closeNav() {
 
 <center>
 <div class="inputNumber">
-  <form>
-        
-          <input type="button" class="convertBtn" onClick="convert()" Value="Convert"/> 
+  <form> 
           <input type="number" class="inputNumberTxtBx" id="firstNumber" />
+          <input type="button" class="convertBtn" onClick="convert()" Value="Convert"/>
           
   </form>
   </center> 
 </div>
 <div class="convertResult">
-  <p>Result : <output id = "result3"></output></p>
+  <p>Result: <output id = "result3"></output></p>
 </div>
 
 <div class="fromtoContainer">
@@ -137,7 +137,9 @@ function closeNav() {
 </div>
 
   
-<script src="binaryConverter.js"></script>
+<script src="js/binaryConverter.js"></script>
+</div>
+
 
 </body>
 </html>

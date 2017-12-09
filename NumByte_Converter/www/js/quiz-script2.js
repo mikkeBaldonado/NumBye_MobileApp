@@ -223,11 +223,11 @@
   	resultText.style.display = 'none';
     ansKeyCont.style.display ='';
 
-    ansKey1.innerText = '1. ' + randomIndex[0].question + ' \n Answer: ' + randomIndex[0].answer;
-    ansKey2.innerText = '2. ' + randomIndex[1].question + ' \n Answer: ' + randomIndex[1].answer;
-    ansKey3.innerText = '3. ' + randomIndex[2].question + ' \n Answer: ' + randomIndex[2].answer;
-    ansKey4.innerText = '4. ' + randomIndex[3].question + ' \n Answer: ' + randomIndex[3].answer;
-    ansKey5.innerText = '5. ' + randomIndex[4].question + ' \n Answer: ' + randomIndex[4].answer;
+    ansKey1.innerText = '1. ' + randomIndex[0].question + ' \nAnswer: ' + randomIndex[0].answer;
+    ansKey2.innerText = '2. ' + randomIndex[1].question + ' \nAnswer: ' + randomIndex[1].answer;
+    ansKey3.innerText = '3. ' + randomIndex[2].question + ' \nAnswer: ' + randomIndex[2].answer;
+    ansKey4.innerText = '4. ' + randomIndex[3].question + ' \nAnswer: ' + randomIndex[3].answer;
+    ansKey5.innerText = '5. ' + randomIndex[4].question + ' \nAnswer: ' + randomIndex[4].answer;
 
   };
 
